@@ -37,12 +37,12 @@ list_all_versions() {
 getArch() {
   ARCH=$(uname -m)
   case $ARCH in
-    armv*) ARCH="arm";;
-    aarch64) ARCH="arm64";;
-    x86) ARCH="386";;
-    x86_64) ARCH="amd64";;
-    i686) ARCH="386";;
-    i386) ARCH="386";;
+  armv*) ARCH="arm" ;;
+  aarch64) ARCH="arm64" ;;
+  x86) ARCH="386" ;;
+  x86_64) ARCH="amd64" ;;
+  i686) ARCH="386" ;;
+  i386) ARCH="386" ;;
   esac
   echo "$ARCH"
 }
