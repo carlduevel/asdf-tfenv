@@ -41,8 +41,9 @@ download_release() {
   version="$1"
   filename="$2"
 
-  # TODO: Adapt the release URL convention for tfenv
-  url="$GH_REPO/archive/v${version}.tar.gz"
+  # TODO: Adapt for other OSes than linux
+  url="$GH_REPO/releases/download/${version}/tfenv_linux_amd64"
+
 
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
