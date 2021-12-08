@@ -34,13 +34,25 @@ list_all_versions() {
   list_github_tags
 }
 
+getArch() {
+  ARCH=$(uname -m)
+  case $ARCH in
+    armv*) ARCH="arm";;
+    aarch64) ARCH="arm64";;
+    x86) ARCH="386";;
+    x86_64) ARCH="amd64";;
+    i686) ARCH="386";;
+    i386) ARCH="386";;
+  esac
+  echo "$ARCH"
+}
+
 download_release() {
   local version filename url
   version="$1"
   filename="$2"
   os=$(uname | tr '[:upper:]' '[:lower:]')
-  # TODO: Adapt for other architectures than amd64
-  url="$GH_REPO/releases/download/${version}/tfenv_${os}_amd64"
+  url="$GH_REPO/releases/download/${version}/tfenv_${os}_$(getArch)"
 
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
