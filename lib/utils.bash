@@ -38,9 +38,9 @@ download_release() {
   local version filename url
   version="$1"
   filename="$2"
-
-  # TODO: Adapt for other OSes than linux
-  url="$GH_REPO/releases/download/${version}/tfenv_linux_amd64"
+  os=$(uname | tr '[:upper:]' '[:lower:]')
+  # TODO: Adapt for other architectures than amd64
+  url="$GH_REPO/releases/download/${version}/tfenv_${os}_amd64"
 
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
