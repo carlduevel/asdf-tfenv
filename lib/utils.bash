@@ -42,7 +42,6 @@ download_release() {
   # TODO: Adapt for other OSes than linux
   url="$GH_REPO/releases/download/${version}/tfenv_linux_amd64"
 
-
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
@@ -50,7 +49,7 @@ download_release() {
 install_version() {
   local install_type="$1"
   local version="$2"
-  local install_path="$3"
+  local install_path="$3/bin"
 
   if [ "$install_type" != "version" ]; then
     fail "asdf-$TOOL_NAME supports release installs only"
@@ -62,11 +61,12 @@ install_version() {
 
     local tool_cmd
     tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
-    test -x "$install_path/bin/$tool_cmd" || fail "Expected $install_path/bin/$tool_cmd to be executable."
+    test -f "$install_path/$tool_cmd" || fail "Expected $install_path/bin/$tool_cmd to be a file."
+    test -x "$install_path/$tool_cmd" || fail "Expected $install_path/bin/$tool_cmd to be executable."
 
     echo "$TOOL_NAME $version installation was successful!"
   ) || (
-    rm -rf "$install_path"
+    # rm -rf "$install_path"
     fail "An error ocurred while installing $TOOL_NAME $version."
   )
 }
