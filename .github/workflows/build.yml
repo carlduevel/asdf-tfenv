@@ -5,6 +5,8 @@ on:
     branches:
       - main
   pull_request:
+  schedule:
+    - cron: '11 1 * * 1'
 
 jobs:
   plugin_test:
