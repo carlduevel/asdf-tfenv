@@ -39,6 +39,9 @@ asdf list-all tfenv
 # Install specific version
 asdf install tfenv latest
 
+# Override arch when installing for Apple M1
+OVERRIDE_ARCH=amd64 asdf install tfenv latest
+
 # Set a version globally (on your ~/.tool-versions file)
 asdf global tfenv latest
 
