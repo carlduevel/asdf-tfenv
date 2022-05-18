@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for tfenv.
-GH_REPO="https://github.com/cloudposse/tfenv"
+GH_REPO="https://github.com/tfutils/tfenv"
 TOOL_NAME="tfenv"
 TOOL_TEST="tfenv"
 
