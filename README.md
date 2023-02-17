@@ -49,6 +49,10 @@ tfenv
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
 install & manage versions.
 
+As of version 0.4.0 there is no ARM Mac build of tfenv.
+See [this](https://github.com/asdf-vm/asdf/issues/834#issuecomment-924682825) workaround to install the amd64 version instead.
+This will then work on ARM due to [Rosetta 2](https://en.wikipedia.org/wiki/Rosetta_(software)#Rosetta_2). 
+
 # Contributing
 
 Contributions of any kind welcome! See the [contributing guide](contributing.md).
