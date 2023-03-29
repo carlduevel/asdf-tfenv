@@ -3,7 +3,7 @@
 # asdf-tfenv [![Build](https://github.com/carlduevel/asdf-tfenv/actions/workflows/build.yml/badge.svg)](https://github.com/carlduevel/asdf-tfenv/actions/workflows/build.yml) [![Lint](https://github.com/carlduevel/asdf-tfenv/actions/workflows/lint.yml/badge.svg)](https://github.com/carlduevel/asdf-tfenv/actions/workflows/lint.yml)
 
 
-[tfenv](https://github.com/cloudposse/tfenv) plugin for the [asdf version manager](https://asdf-vm.com).
+[tfenv](https://github.com/tfutils/tfenv) plugin for the [asdf version manager](https://asdf-vm.com).
 
 </div>
 
