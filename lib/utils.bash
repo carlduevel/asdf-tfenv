@@ -48,12 +48,16 @@ getArch() {
 }
 
 download_release() {
-  local version filename url
+  local version filename url arch
   version="$1"
   filename="$2"
+  arch=$(getArch)
   os=$(uname | tr '[:upper:]' '[:lower:]')
-  url="$GH_REPO/releases/download/${version}/tfenv_${os}_$(getArch)"
-
+  if [ "$os" == "darwin" ] && [ "${arch}" == "arm64" ]; then
+    url="$GH_REPO/releases/download/${version}/tfenv_darwin_amd64"
+  else
+    url="$GH_REPO/releases/download/${version}/tfenv_${os}_${arch}"
+  fi
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
