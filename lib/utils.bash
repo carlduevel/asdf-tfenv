@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for tgenv.
-GH_REPO="https://github.com/cloudposse/tgenv"
+GH_REPO="https://github.com/tgenv/tgenv"
 TOOL_NAME="tgenv"
 TOOL_TEST="tgenv"
 
