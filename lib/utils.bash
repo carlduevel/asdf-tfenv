@@ -67,13 +67,14 @@ download_release() {
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
 
-###install_version "version" "1.2.1" "/home/acancio/.asdf/inst alls/tgenv/1.2.1"
+###install_version "version" "1.2.1" "/home/acancio/.asdf/installs/tgenv/1.2.1"
 
 install_version() {
-  local install_type="$1"
-  local version="$2"
-  local install_path="$3"
-
+  local install_type version install_path
+  install_type="$1"
+  version="$2"
+  install_path="$3"
+  
   if [ "$install_type" != "version" ]; then
     fail "asdf-$TOOL_NAME supports release installs only"
   fi
@@ -82,9 +83,7 @@ install_version() {
     mkdir -p "$install_path"
     cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
     #### Decompress the tar.gz file
-    tar xvzf "$install_path"/tgenv --strip-components=2 -C ./
-
-
+    tar xvzf "$install_path"/$TOOL_NAME --strip-components=2 -C "$install_path"/
 
     local tool_cmd
     tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
