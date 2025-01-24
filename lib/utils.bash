@@ -67,7 +67,7 @@ download_release() {
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
 
-###install_version "version" "1.2.1" "/home/acancio/.asdf/installs/tgenv/1.2.1"
+###install_version "version" "1.2.1" "/home/acancio/.asdf/inst alls/tgenv/1.2.1"
 
 install_version() {
   local install_type="$1"
@@ -80,6 +80,7 @@ install_version() {
 
   (
     mkdir -p "$install_path"
+    ls -al "$ASDF_DOWNLOAD_PATH"/*
     cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
     
     #### Decompress the tar.gz file
