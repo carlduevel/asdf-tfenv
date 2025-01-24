@@ -31,8 +31,7 @@ list_github_tags() {
 }
 
 list_all_versions() {
-  echo "listing github tags"
-  list_github_tags
+   list_github_tags
 }
 
 #getArch() {
