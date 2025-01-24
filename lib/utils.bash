@@ -61,6 +61,7 @@ install_version() {
 
     local tool_cmd
     tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
+    echo $tool_cmd
     test -f "$install_path/$tool_cmd" || fail "Expected $install_path/bin/$tool_cmd to be a file."
     test -x "$install_path/$tool_cmd" || fail "Expected $install_path/bin/$tool_cmd to be executable."
 
