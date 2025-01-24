@@ -80,11 +80,9 @@ install_version() {
 
   (
     mkdir -p "$install_path"
-    ls -al "$ASDF_DOWNLOAD_PATH"/*
     cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
-    
     #### Decompress the tar.gz file
-    tar xvzf tgenv-${version}.tar.gz --strip-components=1 -C 1.2.1/
+    tar xvzf "$install_path"/tgenv --strip-components=2 -C ./
 
 
 
