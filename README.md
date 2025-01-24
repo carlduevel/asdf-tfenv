@@ -30,7 +30,7 @@ Plugin:
 ```shell
 asdf plugin add tgenv
 # or
-asdf plugin add tgenv https://github.com/carlduevel/asdf-tgenv.git
+asdf plugin add tgenv https://github.com/4ng31/asdf-tgenv.git
 ```
 
 tgenv:
@@ -60,7 +60,7 @@ This will then work on ARM due to [Rosetta 2](https://en.wikipedia.org/wiki/Rose
 
 Contributions of any kind welcome! See the [contributing guide](contributing.md).
 
-[Thanks goes to these contributors](https://github.com/carlduevel/asdf-tgenv/graphs/contributors)!
+[Thanks goes to these contributors](https://github.com/4ng31/asdf-tgenv/graphs/contributors)!
 
 # License
 
