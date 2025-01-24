@@ -31,33 +31,39 @@ list_github_tags() {
 }
 
 list_all_versions() {
+  echo "listing github tags"
   list_github_tags
 }
 
-getArch() {
-  ARCH=$(uname -m)
-  case $ARCH in
-  armv*) ARCH="arm" ;;
-  aarch64) ARCH="arm64" ;;
-  x86) ARCH="386" ;;
-  x86_64) ARCH="amd64" ;;
-  i686) ARCH="386" ;;
-  i386) ARCH="386" ;;
-  esac
-  echo "$ARCH"
-}
+#getArch() {
+#  ARCH=$(uname -m)
+#  case $ARCH in
+#  armv*) ARCH="arm" ;;
+#  aarch64) ARCH="arm64" ;;
+#  x86) ARCH="386" ;;
+#  x86_64) ARCH="amd64" ;;
+#  i686) ARCH="386" ;;
+#  i386) ARCH="386" ;;
+#  esac
+#  echo "$ARCH"
+#}
+#
+#
+## Release URLs example
+#https://github.com/tgenv/tgenv/archive/refs/tags/v1.2.1.tar.gz
 
 download_release() {
   local version filename url arch
   version="$1"
   filename="$2"
-  arch=$(getArch)
-  os=$(uname | tr '[:upper:]' '[:lower:]')
-  if [ "$os" == "darwin" ] && [ "${arch}" == "arm64" ]; then
-    url="$GH_REPO/releases/download/${version}/tgenv_darwin_amd64"
-  else
-    url="$GH_REPO/releases/download/${version}/tgenv_${os}_${arch}"
-  fi
+  #arch=$(getArch)
+  #os=$(uname | tr '[:upper:]' '[:lower:]')
+  #if [ "$os" == "darwin" ] && [ "${arch}" == "arm64" ]; then
+  #  url="$GH_REPO/releases/download/${version}/tgenv_darwin_amd64"
+  #else
+  #  url="$GH_REPO/releases/download/${version}/tgenv_${os}_${arch}"
+  #fi
+  url="$GH_REPO/archive/refs/tags/v${version}.tar.gz"
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
