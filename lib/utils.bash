@@ -83,7 +83,7 @@ install_version() {
     mkdir -p "$install_path"
     cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
     #### Decompress the tar.gz file
-    tar xvzf "$install_path"/$TOOL_NAME --strip-components=2 -C "$install_path"/
+    tar xvzf "$install_path"/$TOOL_NAME --strip-components=1 -C "$install_path"/
 
     local tool_cmd
     tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
