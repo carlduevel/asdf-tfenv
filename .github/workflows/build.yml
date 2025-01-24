@@ -10,4 +10,4 @@ jobs:
    test:
     uses: carlduevel/asdf-plugin-build-harness/.github/workflows/build.yml@master
     with:
-      command: tfenv
+      command: tgenv

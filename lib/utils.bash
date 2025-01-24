@@ -2,10 +2,10 @@
 
 set -euo pipefail
 
-# TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for tfenv.
-GH_REPO="https://github.com/cloudposse/tfenv"
-TOOL_NAME="tfenv"
-TOOL_TEST="tfenv"
+# TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for tgenv.
+GH_REPO="https://github.com/cloudposse/tgenv"
+TOOL_NAME="tgenv"
+TOOL_TEST="tgenv"
 
 fail() {
   echo -e "asdf-$TOOL_NAME: $*"
@@ -14,7 +14,7 @@ fail() {
 
 curl_opts=(-fsSL)
 
-# NOTE: You might want to remove this if tfenv is not hosted on GitHub releases.
+# NOTE: You might want to remove this if tgenv is not hosted on GitHub releases.
 if [ -n "${GITHUB_API_TOKEN:-}" ]; then
   curl_opts=("${curl_opts[@]}" -H "Authorization: token $GITHUB_API_TOKEN")
 fi
@@ -54,9 +54,9 @@ download_release() {
   arch=$(getArch)
   os=$(uname | tr '[:upper:]' '[:lower:]')
   if [ "$os" == "darwin" ] && [ "${arch}" == "arm64" ]; then
-    url="$GH_REPO/releases/download/${version}/tfenv_darwin_amd64"
+    url="$GH_REPO/releases/download/${version}/tgenv_darwin_amd64"
   else
-    url="$GH_REPO/releases/download/${version}/tfenv_${os}_${arch}"
+    url="$GH_REPO/releases/download/${version}/tgenv_${os}_${arch}"
   fi
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
